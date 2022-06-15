@@ -250,11 +250,11 @@ Use copy to do the following:
 
 function listOfNames(array){
   const copyOfList = [...array];
-  for(let i = 0 ; i < copyOfList.length; i++){
-
+  for(let i = 0; i < copyOfList.length; i++){
+    copyOfList[i] = copyOfList[i].name;
     
   }
-  
+   return copyOfList;
 }
 
 console.log('task 4:', listOfNames(artists));
@@ -268,12 +268,13 @@ Use removeArtist to do the following:
 5. Return the resulting copied array
 🌟 EXAMPLE: if removeArtist is invoked with the artists array and the number 0, it will return the resulting array with Amedeo Modigliani removed from our dataset. */
 
-function removeArtist(array, number) {
- const secondList = [...artists]
- for(let i = 0; i < array.length; i++){
-  if(secondList[i] === number){secondList.splice(i, 1)};
- }
+function removeArtist(array, index) {
+ const newList = [...array];
+ newList.splice(index, 1)
+ return newList; 
+
 }
+
 console.log('task 5:', removeArtist(artists, 0));
 
 
@@ -306,10 +307,14 @@ Use lotsOfArt to do the following:
 🌟 EXAMPLE: lotsOfArt(artists) will return ["Amedeo Modigliani", "Rene Magritte", ... "Albrecht Dürer"]
 */
 
-function lotsOfArt(/*Your Code Here*/) {
-  /*Your Code Here*/
+function lotsOfArt(array){
+  const filteredArtists = array.filter( name => {
+    return artists.paintings > 100;
+  });
+    
 }
-
+    
+console.log('task 7:', lotsOfArt(artists));
 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 8: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
